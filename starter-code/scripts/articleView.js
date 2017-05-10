@@ -44,12 +44,13 @@ articleView.handleAuthorFilter = function() {
       $('article').hide();
 
       var $selectedAuthor = $(this).val();
-      $('article[data-author="' + $selectedAuthor + '"]').show();
+      $('article[data-author="' + $selectedAuthor + '"]').fadeIn(750);
 
     } else {
       // TODO: If the select box was changed to an option that is blank, we should
       //       show all the articles, except the one article we are using as a template.
 
+      $('article:not(.template)').fadeIn(750);
     }
     $('#category-filter').val('');
   });
@@ -60,7 +61,16 @@ articleView.handleCategoryFilter = function() {
   //       When an option with a value is selected, hide all the articles, then reveal the matches.
   //       When the blank (default) option is selected, show all the articles, except for the template.
   //       Be sure to reset the #author-filter while you are at it!
+  $('#category-filter').on('change', function() {
+    if($(this).val()){
+      $('article').hide();
 
+      var $selectedCategory = $(this).val();
+      $('article[data-category =' + $selectedCategory + ']').fadeIn(750);
+    } else {
+      $('article:not(.template)').fadeIn(750);
+    }
+  });
 };
 
 articleView.handleMainNav = function() {
@@ -91,4 +101,5 @@ articleView.setTeasers = function() {
 $(document).ready(function() {
   articleView.populateFilters();
   articleView.handleAuthorFilter();
+  articleView.handleCategoryFilter();
 })
