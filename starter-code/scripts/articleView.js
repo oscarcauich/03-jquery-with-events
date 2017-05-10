@@ -42,16 +42,9 @@ articleView.handleAuthorFilter = function() {
       //       Use an "attribute selector" to find those articles, and fade them in for the reader.
 
       $('article').hide();
+
       var $selectedAuthor = $(this).val();
-      var $dataAuthor =  $(this).data('author');
-      console.log($dataAuthor)
-
-      $('article').data('author',$(this).val()),function(){
-          $(this).show();
-      };
-        // console.log($(this).val());
-
-
+      $('article[data-author="' + $selectedAuthor + '"]').show();
 
     } else {
       // TODO: If the select box was changed to an option that is blank, we should
