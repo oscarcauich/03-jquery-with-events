@@ -42,7 +42,9 @@ articleView.handleAuthorFilter = function() {
       //       Use an "attribute selector" to find those articles, and fade them in for the reader.
 
       $('article').hide();
-      console.log($(this).val());
+      var $selectedAuthor = $(this).val();
+      var $dataAuthor =  $(this).data('author');
+      console.log($dataAuthor)
 
       $('article').data('author',$(this).val()),function(){
           $(this).show();
