@@ -85,7 +85,6 @@ articleView.handleMainNav = function() {
     $('section[id =' +$tabSelected+']').fadeIn(750);
   })
 
-
   $('.main-nav .tab:first').click(); // Let's now trigger a click on the first .tab element, to set up the page.
 };
 
