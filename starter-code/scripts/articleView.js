@@ -100,17 +100,11 @@ articleView.setTeasers = function() {
 
   $('#articles').find('.read-on').on('click', function(e){
     e.preventDefault();
+    console.log('howdy');
     $(this).hide();
     $(this).siblings('section').children('p').fadeIn(750);
-    $(this).html('Show Less &larr;').show();
-  })
-  // //
-  // $('#articles').find('.read-on').on('click', function(e){
-  //   e.preventDefault();
-  //   $(this).siblings('section').children('p *:nth-of-type(n+2)').hide();
-  //   $(this).toggleClass('show-less').html('Read on &rarr;').show();
-  // })
-
+    $(this).addClass('show-less').removeClass('read-on').html('Show Less &larr;').show();
+  });
 
   // STRETCH GOAl!: change the 'Read On' link to 'Show Less'
 
