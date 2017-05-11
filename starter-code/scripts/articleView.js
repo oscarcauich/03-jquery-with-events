@@ -107,6 +107,7 @@ articleView.setTeasers = function() {
   });
 
   // STRETCH GOAl!: change the 'Read On' link to 'Show Less'
+  $('#articles').find()
 
 
 
