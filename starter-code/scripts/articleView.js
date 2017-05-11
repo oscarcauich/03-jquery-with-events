@@ -79,6 +79,7 @@ articleView.handleMainNav = function() {
   //       single .tab-content section that is associated with the clicked .tab element.
   //       So: You need to dynamically build a selector string with the correct ID, based on the
   //       data available to you on the .tab element that was clicked.
+
   $('.tab').on('click', function(){
     $('.tab-content').hide();
     var $tabSelected = $(this).data('content');
@@ -97,7 +98,17 @@ articleView.setTeasers = function() {
   //       Ideally, we'd attach this as just 1 event handler on the #articles section, and let it
   //       process any .read-on clicks that happen within child nodes.
 
+  $('#articles').find('.read-on').on('click', function(e){
+    e.preventDefault();
+    console.log('howdy');
+    $(this).hide();
+    $(this).siblings('section').children('p').fadeIn(750);
+    $(this).addClass('show-less').removeClass('read-on').html('Show Less &larr;').show();
+  });
+
   // STRETCH GOAl!: change the 'Read On' link to 'Show Less'
+
+
 
 };
 
@@ -107,4 +118,5 @@ $(document).ready(function() {
   articleView.handleAuthorFilter();
   articleView.handleCategoryFilter();
   articleView.handleMainNav();
+  articleView.setTeasers();
 })
