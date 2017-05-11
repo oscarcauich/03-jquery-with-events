@@ -70,6 +70,7 @@ articleView.handleCategoryFilter = function() {
     } else {
       $('article:not(.template)').fadeIn(750);
     }
+    $('#author-filter').val('');
   });
 };
 
